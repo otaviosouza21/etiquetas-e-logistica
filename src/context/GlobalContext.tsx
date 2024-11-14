@@ -12,6 +12,10 @@ import { romaneioTypeNormalize } from "../types/romaneio";
 export interface GlobalContextType {
   romaneioData: romaneioTypeNormalize[] | null;
   setRomaneioData: Dispatch<SetStateAction<any[] | null>>;
+  currentRomaneio: romaneioTypeNormalize | null;
+  setCurrentRomaneio: Dispatch<SetStateAction<romaneioTypeNormalize | null>>;
+  showModal: string;
+  setShowModal: Dispatch<SetStateAction<string>>;
 }
 
 // Define the type for the props that will be passed to the provider component
@@ -27,12 +31,23 @@ export const GlobalContext = createContext<GlobalContextType | undefined>(
 // Create the provider component
 export const GlobalStorage: React.FC<GlobalStorageProps> = ({ children }) => {
   // Initialize the state with null or an appropriate initial value
-  const [romaneioData, setRomaneioData] = useState<romaneioTypeNormalize[] | null>(
-    null
-  );
+  const [romaneioData, setRomaneioData] = useState<
+    romaneioTypeNormalize[] | null
+  >(null);
+  const [showModal, setShowModal] = useState<string>("");
+  const [currentRomaneio, setCurrentRomaneio] = useState<romaneioTypeNormalize | null>(null);
 
   return (
-    <GlobalContext.Provider value={{ romaneioData, setRomaneioData }}>
+    <GlobalContext.Provider
+      value={{
+        romaneioData,
+        setRomaneioData,
+        showModal,
+        setShowModal,
+        currentRomaneio,
+        setCurrentRomaneio,
+      }}
+    >
       {children}
     </GlobalContext.Provider>
   );

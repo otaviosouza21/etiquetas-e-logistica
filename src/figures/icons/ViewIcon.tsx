@@ -1,6 +1,22 @@
 import React from "react";
+import { useGlobalContext } from "../../context/GlobalContext";
+import { romaneioTypeNormalize } from "../../types/romaneio";
 
-const ViewIcon = () => {
+const ViewIcon = ({
+  rowData,
+  setShowModal,
+}: {
+  rowData: romaneioTypeNormalize;
+  setShowModal: React.Dispatch<React.SetStateAction<string>>;
+}) => {
+  const { setCurrentRomaneio, currentRomaneio } = useGlobalContext();
+
+  function handleClick() {
+    setShowModal("show_romaneio");
+    setCurrentRomaneio(rowData);
+    console.log(currentRomaneio);
+  }
+
   return (
     <svg
       width="20px"
@@ -9,6 +25,8 @@ const ViewIcon = () => {
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
+      style={{ cursor: "pointer" }}
+      onClick={handleClick}
     >
       <title>view_simple [#815]</title>
       <desc>Created with Sketch.</desc>
@@ -16,7 +34,7 @@ const ViewIcon = () => {
       <g
         id="Page-1"
         stroke="none"
-        stroke-width="1"
+        strokeWidth="1"
         fill="none"
         fill-rule="evenodd"
       >

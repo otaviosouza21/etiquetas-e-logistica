@@ -3,12 +3,11 @@ import Navigation from "../../components/Navigation";
 import PrimaryButton from "../../components/Buttons/PrimaryButton";
 import Resume from "../../components/Resume";
 import TableContainer from "../../components/TableContainer";
-import DownloadIcon from "../../figures/icons/DownloadIcon";
-import PrinterIcon from "../../figures/icons/PrinterIcon";
 import UploadIcon from "../../figures/icons/UploadIcon";
-import { Container, Header,Buttons } from "./styles";
+import { Container, Header, Buttons } from "./styles";
 import ReportIcon from "../../figures/icons/ReportIcon";
 import LabelIcon from "../../figures/icons/LabelIcon";
+import EtiquetasRomaneio from "../../components/EtiquetasRomaneio";
 
 const Home = () => {
   return (
@@ -23,6 +22,8 @@ const Home = () => {
       </Header>
       <Resume />
       <TableContainer />
+      {/*     <MapComponent /> */}
+      <EtiquetasRomaneio />
     </Container>
   );
 };

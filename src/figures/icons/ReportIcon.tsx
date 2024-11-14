@@ -1,5 +1,3 @@
-import React from "react";
-
 const ReportIcon = () => {
   return (
     <svg
@@ -10,7 +8,7 @@ const ReportIcon = () => {
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      enable-background="new 0 0 1000 1000"
+      enableBackground="new 0 0 1000 1000"
       xmlSpace="preserve"
     >
       <metadata>

@@ -14,12 +14,16 @@ export const Container = styled.button`
   border: none;
   box-shadow: 1px 1px 5px 1px #333333;
   cursor: pointer;
-  transition: .2s;
+  transition: .1s;
 
   &:hover {
     transform: scale(1.02);
     transition: .2s;
     box-shadow: 1px 1px 10px 1px #333333;
+  }
+
+  &:active{
+    transform: scale(1);
   }
 `;
 

@@ -9,7 +9,7 @@ interface ExcelToJsonProps {
 }
 
 const ExcelToJson: React.FC<ExcelToJsonProps> = ({ file }) => {
-  const { romaneioData, setRomaneioData } = useGlobalContext();
+  const { setRomaneioData } = useGlobalContext();
 
   React.useEffect(() => {
     if (file) {

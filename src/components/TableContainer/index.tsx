@@ -4,6 +4,8 @@ import { useGlobalContext } from "../../context/GlobalContext";
 import HeaderTable from "./HeaderTable";
 import { useState } from "react";
 import { romaneioTypeNormalize } from "../../types/romaneio";
+import Modal from "../Modal";
+import ViewRomaneio from "../Modal/ViewRomaneio";
 
 const TableContainer = () => {
   const { romaneioData } = useGlobalContext();
@@ -11,6 +13,7 @@ const TableContainer = () => {
   const [selectRomaneio, setSelectRomaneio] = useState<romaneioTypeNormalize[]>(
     []
   );
+  const {showModal} = useGlobalContext()
 
   const headerData = [
     {
@@ -25,7 +28,7 @@ const TableContainer = () => {
       name: "",
       flex: 0.2,
     },
-  
+
     {
       name: "Documento",
       flex: 0.8,
@@ -59,11 +62,9 @@ const TableContainer = () => {
       name: "Volumes",
       flex: 0.2,
     },
- 
-    
   ];
 
-  if(!romaneioData || romaneioData?.length == 0) return null
+  if (!romaneioData || romaneioData?.length == 0) return null;
   return (
     <Container>
       <HeaderTable headerData={headerData} />
@@ -78,6 +79,11 @@ const TableContainer = () => {
                 rowData={romaneio}
                 key={romaneio.romaneio_documento}
               />
+              {showModal == "show_romaneio" && (
+                <Modal>
+                  <ViewRomaneio />
+                </Modal>
+              )}
             </>
           );
         })}
