@@ -8,14 +8,24 @@ import { romaneioTypeNormalize } from "../../types/romaneio";
 const TableContainer = () => {
   const { romaneioData } = useGlobalContext();
   const [checkAll, setCheckAll] = useState<boolean>(false);
-  const [selectRomaneio, setSelectRomaneio] = useState<romaneioTypeNormalize[]>([]);
+  const [selectRomaneio, setSelectRomaneio] = useState<romaneioTypeNormalize[]>(
+    []
+  );
 
   const headerData = [
     {
       name: <input type="checkbox" onClick={() => setCheckAll(!checkAll)} />,
+      flex: 0.1,
+    },
+    {
+      name: "",
       flex: 0.3,
     },
-
+    {
+      name: "",
+      flex: 0.2,
+    },
+  
     {
       name: "Documento",
       flex: 0.8,
@@ -49,21 +59,26 @@ const TableContainer = () => {
       name: "Volumes",
       flex: 0.2,
     },
+ 
+    
   ];
 
+  if(!romaneioData || romaneioData?.length == 0) return null
   return (
     <Container>
       <HeaderTable headerData={headerData} />
       {romaneioData &&
         romaneioData.map((romaneio) => {
           return (
-            <RowTable
-              selectRomaneio={selectRomaneio}
-              setSelectRomaneio={setSelectRomaneio}
-              checkAll={checkAll}
-              rowData={romaneio}
-              key={romaneio.romaneio_documento}
-            />
+            <>
+              <RowTable
+                selectRomaneio={selectRomaneio}
+                setSelectRomaneio={setSelectRomaneio}
+                checkAll={checkAll}
+                rowData={romaneio}
+                key={romaneio.romaneio_documento}
+              />
+            </>
           );
         })}
     </Container>

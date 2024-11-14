@@ -56,6 +56,7 @@ const Resume = () => {
     }
   }, [romaneioData]);
 
+  if(!resumeData) return null
   return (
     <Container>
       {resumeData && (

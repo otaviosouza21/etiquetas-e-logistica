@@ -23,7 +23,8 @@ export default {
     fontSize:{
         text_g: "1.56rem",
         text_m: "1.25rem",
-        text_p: '1.20rem'
+        text_p: '1.20rem',
+        text_pp: '1rem'
     }
  
 

@@ -7,7 +7,7 @@ export const Container = styled.div`
   padding: 6px 0;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+
  
 
   &:last-child {

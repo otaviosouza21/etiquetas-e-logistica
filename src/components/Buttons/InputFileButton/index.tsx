@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
-import { InputFileComponent,InputFileContainer, Title } from "./styles";
-import ExcelToJson from "../../functions/ExcelToJson";
+import { InputFileComponent,Container, Title } from "../styles";
+import ExcelToJson from "../../../functions/ExcelToJson";
 
 interface InputFileButtonProps {
   title: string;
@@ -17,10 +17,11 @@ const InputFileButton = ({ title, icon }: InputFileButtonProps) => {
 
   return (
     <>
-      <InputFileContainer>
+      <Container>
+        {icon}
         <Title htmlFor="file-input">{title}</Title>
         <InputFileComponent id="file-input" onChange={handleChange} />
-      </InputFileContainer>
+      </Container>
       {inputFile && <ExcelToJson file={inputFile} />}
     </>
   );

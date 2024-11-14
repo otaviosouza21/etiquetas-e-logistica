@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import { romaneioTypeNormalize } from "../../../types/romaneio";
 import { ColumnTable } from "./ColumnTable";
 import { Container } from "./styles";
+import MapPinIcon from "../../../figures/icons/MapPinIcon";
+import ViewIcon from "../../../figures/icons/ViewIcon";
 
 interface RowTableProps {
   rowData: romaneioTypeNormalize;
@@ -50,8 +52,10 @@ const RowTable = ({ rowData, checkAll, setSelectRomaneio }: RowTableProps) => {
   }
 
   return (
-    <Container onClick={handleActiveRow}>
-      <ColumnTable flex={0.3} columnData={checkbox} />
+    <Container>
+      <ColumnTable handleActiveRow={handleActiveRow} flex={0.2} columnData={checkbox} />
+      <ColumnTable flex={0.2} columnData={<ViewIcon />} />
+      <ColumnTable flex={0.2} columnData={<MapPinIcon />} />
       <ColumnTable flex={0.8} columnData={rowData.romaneio_documento} />
       <ColumnTable flex={2} columnData={rowData.romaneio_cliente} />
       <ColumnTable flex={0.5} columnData={rowData.romaneio_codCliente} />
