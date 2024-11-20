@@ -80,7 +80,7 @@ const TableContainer = () => {
                 setSelectRomaneio={setSelectRomaneio}
                 checkAll={checkAll}
                 rowData={romaneio}
-                key={romaneio.romaneio_documento}
+                key={romaneio.romaneio_id}
               />
             );
           })
@@ -92,7 +92,7 @@ const TableContainer = () => {
                 setSelectRomaneio={setSelectRomaneio}
                 checkAll={checkAll}
                 rowData={romaneio}
-                key={romaneio.romaneio_documento}
+                key={romaneio.romaneio_id}
               />
             );
           })}

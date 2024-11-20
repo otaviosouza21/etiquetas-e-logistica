@@ -24,7 +24,7 @@ const RomaneioSetup = () => {
     <Container>
       <Municipios>
         {municipios.map((municipio) => {
-          return <Municipio municipio={municipio} />;
+          return <Municipio key={municipio} municipio={municipio} />;
         })}
       </Municipios>
       <CloseIcon />

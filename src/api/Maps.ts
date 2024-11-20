@@ -1,5 +1,6 @@
 const VIACEP_URL = "https://viacep.com.br/ws/";
 const API_KEY = "adc509dfda7048f48d06de228869e232";
+const ROUTE_URL = "https://api.openrouteservice.org/v2/directions/driving-car/";
 const GEOCODING_URL = `https://api.opencagedata.com/geocode/v1/json?q=`;
 
 interface EnderecoProps {
@@ -60,6 +61,28 @@ async function GET_COORDENADAS(endereco_data: EnderecoProps) {
       lng: data.results[0].geometry.lng,
     };
     return coordenadas;
+  } catch (error) {
+    return null;
+  }
+}
+
+export async function GET_ROUTE(coordinates: any) {
+  try {
+    const response = await fetch(ROUTE_URL, {
+      method: "POST",
+      mode: 'no-cors',
+      headers: {
+        Authorization: "Bearer " + API_KEY,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        coordinates: coordinates,
+      }),
+    });
+    if (!response.ok) throw new Error("Erro ao buscar informações de coordenadas");
+    const data = (await response.json()) ;
+   
+    return {routes: data.routes[0].geometry.coordinates}
   } catch (error) {
     return null;
   }

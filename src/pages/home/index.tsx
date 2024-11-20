@@ -18,13 +18,25 @@ import { useGlobalContext } from "../../context/GlobalContext";
 import Modal from "../../components/Modal";
 import RomaneioSetup from "../../components/Modal/RomaneioSetup";
 import InputSearch from "../../components/Forms/InputSearch";
-
+import useExtractCoordenadas from "../../functions/useExtractCoordenadas";
+import { GET_ROUTE } from "../../api/Maps";
 
 const Home = () => {
-  const { showModal, setShowModal } = useGlobalContext();
+  const { showModal, setShowModal, romaneioData } = useGlobalContext();
+  const { coordenadas } = useExtractCoordenadas(romaneioData);
 
   function handleRomaneioGenerate() {
     setShowModal("show-romaneio-setup");
+  }
+
+  async function RoutesGenerate() {
+    if (coordenadas && coordenadas.length > 0) {
+      const routeData = await GET_ROUTE(coordenadas);
+      console.log(routeData);
+      
+    } else {
+      console.log("Nenhuma coordenada gerada");
+    }
   }
 
   return (
@@ -40,6 +52,11 @@ const Home = () => {
               title="Gerar Romaneio"
               icon={<ReportIcon />}
             />
+            <PrimaryButton
+              action={RoutesGenerate}
+              title="Gerar Rotas"
+              icon={<LabelIcon />}
+            />
           </ActionButtons>
           <ActionInput>
             <InputSearch />
@@ -48,7 +65,7 @@ const Home = () => {
       </Header>
       <Resume />
       <TableContainer />
-   
+
       <EtiquetasRomaneio />
 
       {showModal == "show-romaneio-setup" && (

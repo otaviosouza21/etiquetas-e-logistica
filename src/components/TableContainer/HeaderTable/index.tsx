@@ -15,8 +15,8 @@ interface headerType {
 const HeaderTable = ({ headerData }: { headerData: headerType[] }) => {
   return (
     <Container>
-      {headerData.map((title) => {
-        return <ColumnTable flex={title.flex} columnData={title.name} />;
+      {headerData.map((title,idx) => {
+        return <ColumnTable key={idx} flex={title.flex} columnData={title.name} />;
       })}
     </Container>
   );
