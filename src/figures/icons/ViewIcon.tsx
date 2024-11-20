@@ -14,7 +14,6 @@ const ViewIcon = ({
   function handleClick() {
     setShowModal("show_romaneio");
     setCurrentRomaneio(rowData);
-    console.log(currentRomaneio);
   }
 
   return (

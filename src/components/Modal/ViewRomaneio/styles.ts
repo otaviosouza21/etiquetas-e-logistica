@@ -14,6 +14,13 @@ export const Container = styled.div`
   position: relative;
 `;
 
+export const DadosCliente = styled.div`
+display: flex;
+flex-direction: column;
+gap: 30px;
+
+`
+
 export const RomaneioData = styled.div`
  display: flex;
  justify-content: space-around;
@@ -62,4 +69,7 @@ export const Buttons = styled.div`
   justify-content: space-around;
 `;
 
+export const MapaCliente = styled.div`
+
+`
 

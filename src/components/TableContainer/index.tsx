@@ -8,12 +8,12 @@ import Modal from "../Modal";
 import ViewRomaneio from "../Modal/ViewRomaneio";
 
 const TableContainer = () => {
-  const { romaneioData } = useGlobalContext();
+  const { romaneioData, filteredRomaneio } = useGlobalContext();
   const [checkAll, setCheckAll] = useState<boolean>(false);
   const [selectRomaneio, setSelectRomaneio] = useState<romaneioTypeNormalize[]>(
     []
   );
-  const {showModal} = useGlobalContext()
+  const { showModal } = useGlobalContext();
 
   const headerData = [
     {
@@ -59,6 +59,10 @@ const TableContainer = () => {
       flex: 0.5,
     },
     {
+      name: "CEP",
+      flex: 0.4,
+    },
+    {
       name: "Volumes",
       flex: 0.2,
     },
@@ -68,10 +72,9 @@ const TableContainer = () => {
   return (
     <Container>
       <HeaderTable headerData={headerData} />
-      {romaneioData &&
-        romaneioData.map((romaneio) => {
-          return (
-            <>
+      {filteredRomaneio
+        ? filteredRomaneio.map((romaneio) => {
+            return (
               <RowTable
                 selectRomaneio={selectRomaneio}
                 setSelectRomaneio={setSelectRomaneio}
@@ -79,14 +82,26 @@ const TableContainer = () => {
                 rowData={romaneio}
                 key={romaneio.romaneio_documento}
               />
-              {showModal == "show_romaneio" && (
-                <Modal>
-                  <ViewRomaneio />
-                </Modal>
-              )}
-            </>
-          );
-        })}
+            );
+          })
+        : romaneioData &&
+          romaneioData.map((romaneio) => {
+            return (
+              <RowTable
+                selectRomaneio={selectRomaneio}
+                setSelectRomaneio={setSelectRomaneio}
+                checkAll={checkAll}
+                rowData={romaneio}
+                key={romaneio.romaneio_documento}
+              />
+            );
+          })}
+
+      {showModal == "show_romaneio" && (
+        <Modal>
+          <ViewRomaneio />
+        </Modal>
+      )}
     </Container>
   );
 };

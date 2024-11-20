@@ -21,6 +21,7 @@ export function NormalizaRomaneio(romaneio: romaneioType) {
     romaneio_estado: romaneio["Estado"],
     romaneio_quantPedidos: romaneio["Qnt.Pedidos"],
     romaneio_transporte: romaneio["Transporte"],
+    romaneio_cep: romaneio["CEP"],
     romaneio_id: romaneio['id']
   };
 

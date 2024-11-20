@@ -12,6 +12,8 @@ import { romaneioTypeNormalize } from "../types/romaneio";
 export interface GlobalContextType {
   romaneioData: romaneioTypeNormalize[] | null;
   setRomaneioData: Dispatch<SetStateAction<any[] | null>>;
+  filteredRomaneio: romaneioTypeNormalize[] | null;
+  setFilteredRomaneio: Dispatch<SetStateAction<any[] | null>>;
   currentRomaneio: romaneioTypeNormalize | null;
   setCurrentRomaneio: Dispatch<SetStateAction<romaneioTypeNormalize | null>>;
   showModal: string;
@@ -31,9 +33,8 @@ export const GlobalContext = createContext<GlobalContextType | undefined>(
 // Create the provider component
 export const GlobalStorage: React.FC<GlobalStorageProps> = ({ children }) => {
   // Initialize the state with null or an appropriate initial value
-  const [romaneioData, setRomaneioData] = useState<
-    romaneioTypeNormalize[] | null
-  >(null);
+  const [romaneioData, setRomaneioData] = useState<romaneioTypeNormalize[] | null>(null);
+  const [filteredRomaneio,setFilteredRomaneio] = useState<romaneioTypeNormalize[] | null>(null);
   const [showModal, setShowModal] = useState<string>("");
   const [currentRomaneio, setCurrentRomaneio] = useState<romaneioTypeNormalize | null>(null);
 
@@ -46,6 +47,8 @@ export const GlobalStorage: React.FC<GlobalStorageProps> = ({ children }) => {
         setShowModal,
         currentRomaneio,
         setCurrentRomaneio,
+        filteredRomaneio,
+        setFilteredRomaneio
       }}
     >
       {children}

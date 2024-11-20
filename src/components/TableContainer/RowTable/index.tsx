@@ -71,6 +71,7 @@ const RowTable = ({ rowData, checkAll, setSelectRomaneio }: RowTableProps) => {
         <ColumnTable flex={0.5} columnData={rowData.romaneio_num} />
         <ColumnTable flex={0.9} columnData={rowData.romaneio_municipio} />
         <ColumnTable flex={0.5} columnData={rowData.romaneio_estado} />
+        <ColumnTable flex={0.5} columnData={rowData.romaneio_cep} />
         <ColumnTable flex={0.2} columnData={rowData.romaneio_volumes} />
       </Container>
       

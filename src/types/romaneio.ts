@@ -18,6 +18,7 @@ export interface romaneioType {
     ['Estado']: string;
     ['Qnt.Pedidos']: number;
     ['Transporte']: string;
+    ['CEP']: string;
     ['id']: number;
   }
   
@@ -43,5 +44,6 @@ export interface romaneioTypeNormalize {
   romaneio_estado: string;
   romaneio_quantPedidos: number;
   romaneio_transporte: string;
+  romaneio_cep: string;
   romaneio_id: number
 }
