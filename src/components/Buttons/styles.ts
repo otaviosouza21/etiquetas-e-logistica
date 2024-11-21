@@ -25,6 +25,13 @@ export const Container = styled.button`
   &:active{
     transform: scale(1);
   }
+
+  &:disabled{
+    background-color: #333333;
+    transform: none;
+    box-shadow: none;
+    color: #666666;
+  }
 `;
 
 export const InputFileComponent = styled.input.attrs({

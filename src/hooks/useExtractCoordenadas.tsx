@@ -6,8 +6,7 @@ import { GET_ADRESS_COORDENADAS } from "../api/Maps";
 const useExtractCoordenadas = (
   romaneioData: romaneioTypeNormalize[] | null
 ) => {
-  const [allCoordenadas, setAllCoordenadas] = useState<[[number,number]] | undefined>([[0,0]]);
-
+  const [allCoordenadas, setAllCoordenadas] = useState<{ lat: number; lng: number; }[] | undefined >([{ lat: 0, lng: 0}]);
   useEffect(() => {
     const fetchCoordenadas = async () => {
       // Garantir que romaneioData seja um array válido ou vazio
@@ -18,16 +17,15 @@ const useExtractCoordenadas = (
               romaneio.romaneio_num
             );
          
-              return [data?.lat, data?.lng]; // Retorna null caso a API não retorne coordenadas válidas
+              return {lat: data?.lat, lng: data?.lng}; // Retorna null caso a API não retorne coordenadas válidas
            
-              
           })
         : [];
 
 
       // Aguarde todas as coordenadas serem resolvidas
       const resolvedCoordenadas = await Promise.all(coordenadasPromises);
-
+      
      
         setAllCoordenadas(resolvedCoordenadas);
    

@@ -66,24 +66,4 @@ async function GET_COORDENADAS(endereco_data: EnderecoProps) {
   }
 }
 
-export async function GET_ROUTE(coordinates: any) {
-  try {
-    const response = await fetch(ROUTE_URL, {
-      method: "POST",
-      mode: 'no-cors',
-      headers: {
-        Authorization: "Bearer " + API_KEY,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        coordinates: coordinates,
-      }),
-    });
-    if (!response.ok) throw new Error("Erro ao buscar informações de coordenadas");
-    const data = (await response.json()) ;
-   
-    return {routes: data.routes[0].geometry.coordinates}
-  } catch (error) {
-    return null;
-  }
-}
+

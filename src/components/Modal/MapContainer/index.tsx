@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "./styles";
-import MapComponent from "../../MapComponent";
+import MapComponentOneMarker from "./MapComponentOneMarker";
 import { GET_ADRESS_COORDENADAS } from "../../../api/Maps";
 import { useGlobalContext } from "../../../context/GlobalContext";
 import Arrow from "../../../figures/icons/Arrow";
@@ -39,7 +39,7 @@ const MapContainer = ({setShowMap} : {setShowMap: React.Dispatch<React.SetStateA
   return (
     <Container>
       <Arrow setShowMap={setShowMap}/>
-      <MapComponent currentCoordenadas={currentCoordenadas} />
+      <MapComponentOneMarker currentCoordenadas={currentCoordenadas} />
     </Container>
   );
 };

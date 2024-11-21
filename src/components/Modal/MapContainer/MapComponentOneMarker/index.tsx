@@ -17,7 +17,7 @@ interface CoordenadasProps {
   } | null;
 }
 
-const MapComponent = ({ currentCoordenadas }: CoordenadasProps) => {
+const MapComponentOneMarker = ({ currentCoordenadas }: CoordenadasProps) => {
   const mapElement = useRef<HTMLDivElement | null>(null); // Referência para o div onde o mapa será renderizado
 
   useEffect(() => {
@@ -76,4 +76,4 @@ const MapComponent = ({ currentCoordenadas }: CoordenadasProps) => {
   );
 };
 
-export default MapComponent;
+export default MapComponentOneMarker;
