@@ -23,7 +23,6 @@ const Home = () => {
       <Resume />
       <TableContainer />
       {/*     <MapComponent /> */}
-      <EtiquetasRomaneio />
     </Container>
   );
 };

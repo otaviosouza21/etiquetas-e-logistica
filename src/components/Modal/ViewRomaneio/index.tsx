@@ -80,7 +80,7 @@ const ViewRomaneio = () => {
           </Carga>
         </RomaneioData>
         <Buttons>
-          <PrimaryButton title="Etiquetas" icon={<LabelIcon />} />
+          <PrimaryButton activeNavigation="romaneio-etiquetas" title="Etiquetas" icon={<LabelIcon />} />
           <PrimaryButton title="Mapa" icon={<MapPinSecondaryIcon />} />
         </Buttons>
       </Container>

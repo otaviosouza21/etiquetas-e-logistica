@@ -23,7 +23,7 @@ const Navigation = () => {
     <Container>
       {navs.map((nav) => {
         return (
-          <Nav key={nav.id} onClick={()=>handleNavigation(nav.id)} active={activeNav === nav.id}>
+          <Nav key={nav.id} onClick={()=>handleNavigation(nav.id)} isActive={activeNav === nav.id}>
             {nav.name}
           </Nav>
         );

@@ -3,11 +3,15 @@ import { Container } from "./styles";
 export const ColumnTable = ({
   columnData,
   flex,
-  handleActiveRow
+  handleActiveRow,
 }: {
-  handleActiveRow?: () => void
+  handleActiveRow?: () => void;
   columnData: any;
   flex: number;
 }) => {
-  return <Container onClick={handleActiveRow} flex={flex}>{columnData}</Container>;
+  return (
+    <Container onClick={handleActiveRow} flex={flex}>
+      {columnData}
+    </Container>
+  );
 };

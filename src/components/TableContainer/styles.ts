@@ -13,3 +13,10 @@ export const Container = styled.div`
   margin-top: 20px;
   border-radius: 20px;
 `;
+
+export const ContainerLoading = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+`;

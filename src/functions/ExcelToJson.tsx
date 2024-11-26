@@ -32,9 +32,6 @@ const ExcelToJson: React.FC<ExcelToJsonProps> = ({ file }) => {
           const romaneioNormalizado = jsonData.map((romaneio) => {
             if (romaneio) return NormalizaRomaneio(romaneio);
           });
-
-      
-
           setRomaneioData(romaneioNormalizado);
         }
       };

@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { Container, ContainerLoading } from "./styles";
 import RowTable from "./RowTable";
 import { useGlobalContext } from "../../context/GlobalContext";
 import HeaderTable from "./HeaderTable";
@@ -6,6 +6,8 @@ import { useState } from "react";
 import { romaneioTypeNormalize } from "../../types/romaneio";
 import Modal from "../Modal";
 import ViewRomaneio from "../Modal/ViewRomaneio";
+import { Loading } from "../UI/styles";
+import { set } from "ol/transform";
 
 const TableContainer = () => {
   const { romaneioData } = useGlobalContext();
@@ -13,7 +15,13 @@ const TableContainer = () => {
   const [selectRomaneio, setSelectRomaneio] = useState<romaneioTypeNormalize[]>(
     []
   );
-  const {showModal} = useGlobalContext()
+  const [loading, setLoading] = useState<boolean>(false);
+
+  setTimeout(() => {
+    setLoading(true);
+  }, 4000);
+
+  const { showModal } = useGlobalContext();
 
   const headerData = [
     {
@@ -64,29 +72,33 @@ const TableContainer = () => {
     },
   ];
 
-  if (!romaneioData || romaneioData?.length == 0) return null;
+  if (!romaneioData || (romaneioData?.length == 0 && loading)) return null;
   return (
     <Container>
       <HeaderTable headerData={headerData} />
-      {romaneioData &&
+      {romaneioData && loading ? (
         romaneioData.map((romaneio) => {
           return (
-            <>
-              <RowTable
-                selectRomaneio={selectRomaneio}
-                setSelectRomaneio={setSelectRomaneio}
-                checkAll={checkAll}
-                rowData={romaneio}
-                key={romaneio.romaneio_documento}
-              />
-              {showModal == "show_romaneio" && (
-                <Modal>
-                  <ViewRomaneio />
-                </Modal>
-              )}
-            </>
+            <RowTable
+              selectRomaneio={selectRomaneio}
+              setSelectRomaneio={setSelectRomaneio}
+              checkAll={checkAll}
+              rowData={romaneio}
+              key={romaneio.romaneio_id}
+            />
           );
-        })}
+        })
+      ) : (
+        <ContainerLoading>
+          <Loading />
+        </ContainerLoading>
+      )}
+
+      {showModal == "show_romaneio" && (
+        <Modal>
+          <ViewRomaneio />
+        </Modal>
+      )}
     </Container>
   );
 };
