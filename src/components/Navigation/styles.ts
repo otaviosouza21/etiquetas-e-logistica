@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 interface NavProps {
   active?: boolean;
@@ -10,18 +11,20 @@ export const Container = styled.ul`
   font-family: "${({ theme }) => theme.fonts.poppins}";
   display: flex;
   padding: 6px 6px;
-  justify-content: space-between;
+  justify-content: space-around;
   border-radius: 40px;
-  max-width: 250px;
+
+  
   box-shadow: 2px 2px 2px 0px #242424;
 `;
 
-export const Nav = styled.li<NavProps>`
+export const Nav = styled(NavLink)<NavProps>`
   color: ${({ theme,active }) => active ? theme.colors.backgound_page : theme.colors.text};
   font-weight: 700;
   background-color: ${({theme, active})=> active ? theme.colors.primary : ''};
-  padding: 12px;
+  padding: 16px;
   border-radius: 40px;
   cursor: pointer;
   transition: .2s cubic-bezier();
+  text-decoration: none;
 `;

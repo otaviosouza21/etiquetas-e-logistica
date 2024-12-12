@@ -3,6 +3,10 @@ import { Container, Nav } from "./styles";
 
 const navs = [
   {
+    id: "home",
+    name: "Home",
+  },
+  {
     id: "romaneio",
     name: "Romaneio",
   },
@@ -10,6 +14,11 @@ const navs = [
     id: "produtos",
     name: "Produtos",
   },
+  {
+    id: "pedidos",
+    name: "Pedidos",
+  }
+ 
 ];
 
 const Navigation = () => {
@@ -23,7 +32,7 @@ const Navigation = () => {
     <Container>
       {navs.map((nav) => {
         return (
-          <Nav key={nav.id} onClick={()=>handleNavigation(nav.id)} active={activeNav === nav.id}>
+          <Nav to={nav.id} key={nav.id} onClick={()=>handleNavigation(nav.id)} active={activeNav === nav.id}>
             {nav.name}
           </Nav>
         );
