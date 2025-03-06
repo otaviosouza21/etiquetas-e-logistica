@@ -10,20 +10,20 @@ export const Container = styled.ul`
   background-color: ${({ theme }) => theme.colors.bg_screen_secondary};
   font-family: "${({ theme }) => theme.fonts.poppins}";
   display: flex;
-  padding: 6px 6px;
+  padding: 0px 6px 2px 6px;
   justify-content: space-around;
-  border-radius: 40px;
-
-  
+  border-radius: 0 0 20px 20px;
   box-shadow: 2px 2px 2px 0px #242424;
+  flex: 2;
+  
 `;
 
 export const Nav = styled(NavLink)<NavProps>`
   color: ${({ theme,active }) => active ? theme.colors.backgound_page : theme.colors.text};
   font-weight: 700;
   background-color: ${({theme, active})=> active ? theme.colors.primary : ''};
-  padding: 16px;
-  border-radius: 40px;
+  padding: 10px 12px;
+  border-radius: 0 0 20px 20px;
   cursor: pointer;
   transition: .2s cubic-bezier();
   text-decoration: none;

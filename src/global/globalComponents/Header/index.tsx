@@ -1,9 +1,14 @@
-import Navigation from "../../../components/Navigation"
+import CurrentUserHeader from "./CurrentUserHeader";
+import Navigation from "./Navigation";
+import {Container} from './styles'
 
 const Header = () => {
   return (
-    <Navigation />
-  )
-}
+    <Container>
+      <Navigation />
+      <CurrentUserHeader />
+    </Container>
+  );
+};
 
-export default Header
+export default Header;

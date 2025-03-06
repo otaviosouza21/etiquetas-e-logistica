@@ -2,7 +2,7 @@ import { Container, Title } from "../styles";
 
 interface PrimaryButtonProps {
   title: string;
-  icon: JSX.Element;
+  icon?: JSX.Element;
   action?: () => void;
   disabled?: boolean
 }

@@ -5,14 +5,16 @@ import { ThemeProvider } from "styled-components";
 import Header from "./global/globalComponents/Header";
 import { Routes,Route } from "react-router-dom";
 import Romaneio from "./pages/romaneio";
+import Login from "./pages/login";
 
 function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Header />
+      {/*   <Header /> */} 
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/romaneio" element={<Romaneio />} />
         </Routes>
       </ThemeProvider>

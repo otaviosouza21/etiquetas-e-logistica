@@ -10,11 +10,13 @@ export const Container = styled.button`
   font-family: ${({ theme }) => theme.fonts.poppins};
   gap: 6px;
   justify-content: center;
-  padding: 16px 22px;
+  padding: 12px 22px;
   border: none;
   box-shadow: 1px 1px 5px 1px #333333;
   cursor: pointer;
   transition: .1s;
+  font-size: ${({ theme }) => theme.fontSize.text_xp};
+  width: 100%;
 
   &:hover {
     transform: scale(1.02);
